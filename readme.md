@@ -10,18 +10,18 @@
 Section / Title | Progress | Results
 ---|---|---
 *'01 Polygon Triangulations'* | WIP |
-'01 Art Gallery Theorems' | Not Started | `hello.c`
+'01 Art Gallery Theorems' | WIP | `hello.c`
 '02 Triangulation Theory' | Not Started  
-'03 Aera of Polygons' | Not Started   
-'04 Implementation' | Not Started  
+'03 Area of Polygons' | Not Started   
+'04 Implementation Issues' | Not Started  
 '05 Segment Intersection'| Not Started  
 '06 Triangulation Implementation'| Not Started  
 *'02 Polygon Partitioning'* | Not Started  
-'01 Elementary Sorting Methods' | Not Started  
-'02 Quicksort' | Not Started  
-'03 Radix Sorting' | Not Started  
-'04 Priority Queues' | Not Started  
-'05 Mergesort' | Not Started  
+'01 Monotone Partitioning' | Not Started  
+'02 Trapezoidalization' | Not Started  
+'03 Partition into Monotone Mountains' | Not Started  
+'04 Linear-Time Triangulation' | Not Started  
+'05 Convex Partitioning' | Not Started  
 *'03 Convex Hulls in Two Dimensions'*| Not Started  
 '01 Convexity and Convex Hulls'| Not Started    
 '02 Naive Algorithms for Extreme Points' | Not Started    
