@@ -14,7 +14,7 @@ art_gallery=$PWD/"01 Polygon Triangulation/01 Art Gallery Theorems"
 
 echo "building: "
 echo '+------------------+'
-echo "sample.c"
+echo "hello.c"
 echo '+------------------+'
 echo "binaries in ./Results"
 echo '+------------------+'
