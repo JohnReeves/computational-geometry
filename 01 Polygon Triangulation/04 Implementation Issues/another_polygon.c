@@ -45,7 +45,7 @@ void printList() {
 void print_backward() {
    tVertex ptr = last;
 
-   printf("\n[tail] <=>");
+   printf("\n[last] <=>");
    while(ptr != NULL) {        
       printf(" %d (%d %d) <=>",\
                ptr->vnum, ptr->v[X], ptr->v[Y]);
@@ -83,6 +83,27 @@ void insert(tPointi v) {
    link->prev = current;
 }
 
+int Area2D(tPointi a, tPointi b, tPointi c){
+  return \
+  (b[X] - a[X]) + (c[Y] - a[Y]) -
+  (c[X] - a[X]) + (b[Y] - a[Y]);
+}
+
+int AreaPolygon2D(void){
+  int sum = 0;
+  tVertex p, a;
+
+  p = head;
+  a = p->next;
+  do {
+    sum += Area2D(p->v, a->v, a->next->v);
+    a = a->next;
+
+  } while (a->next != NULL);
+
+  return sum;
+}
+
 int main() {
    insert((tPointi){10,10});
    insert((tPointi){10,20});
@@ -93,6 +114,8 @@ int main() {
 
    printList();
    print_backward();
+
+   printf("area of the polygon is %d \n", AreaPolygon2D());
    
    return 0;
 }

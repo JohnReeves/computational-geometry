@@ -20,13 +20,20 @@ typedef int tPointi[DIM];
 // definition of a vertex
 typedef struct tVertexStructure tsVertex;
 typedef tsVertex *tVertex;
+
 struct tVertexStructure {
   int vnum;
   tPointi v;
   bool ear;
   tVertex next, prev;
 };
+
 tVertex vertices = NULL;
+
+tVertex head = NULL;
+tVertex last = NULL;
+
+tVertex current = NULL;
 
 // definition of a polygon
 #define EXIT FAILURE 1
@@ -35,18 +42,18 @@ tVertex vertices = NULL;
 #define NEW(p, type) \
     if ((p=(type *) malloc (sizeof(type))) == NULL) {\
         printf("NEW: Out of Memory!\n");\
-        exit();\
+        exit(1);\
     }
 
-#define ADD(head, p) \
-    if (head) {\
-        p->next = head;\
-        p->prev = head->prev;\
-        head->prev = p;\
+#define ADD(HEAD, p) \
+    if (HEAD) {\
+        p->next = HEAD;\
+        p->prev = HEAD->prev;\
+        HEAD->prev = p;\
         p->prev->next = p;\
     } else {\
-        head = p;\
-        head->next = head->prev = p;\
+        HEAD = p;\
+        HEAD->next = HEAD->prev = p;\
     }
 
 #define FREE(p) \
@@ -77,16 +84,17 @@ int AreaPolygon2D(void){
 }
 
 int main() {
+  // learn the build cylce 
+  printf("Hello Comrade!\n\n");
+  printf("What's the Point ... & where's Polygon :-)\n");
+
   int i,x_in,y_in;
   tPointi p_in;
 
   tVertex v;
-  v = vertices;
-  //NEW(v, tVertex);
+  // v = vertices;
+  NEW(v, tVertex);
 
-  // learn the build cylce 
-  printf("Hello Comrade!\n\n");
-  printf("What's the Point ... & where's Polygon :-)\n");
 
   // read the set of 2d vertices
    printf("type (X Y) pairs of integers; \n");
