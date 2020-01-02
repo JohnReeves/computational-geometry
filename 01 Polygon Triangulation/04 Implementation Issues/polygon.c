@@ -24,13 +24,13 @@ struct tVertexStructure {
   int vnum;
   tPointi v;
   bool ear;
-  tVertex next,prev;
+  tVertex next, prev;
 };
 tVertex vertices = NULL;
 
 // definition of a polygon
 #define EXIT FAILURE 1
-char * malloc();
+//char * malloc();
 
 #define NEW(p, type) \
     if ((p=(type *) malloc (sizeof(type))) == NULL) {\
@@ -79,7 +79,10 @@ int AreaPolygon2D(void){
 int main() {
   int i,x_in,y_in;
   tPointi p_in;
-  NEW(p_in, node);
+
+  tVertex v;
+  v = vertices;
+  //NEW(v, tVertex);
 
   // learn the build cylce 
   printf("Hello Comrade!\n\n");
@@ -92,7 +95,7 @@ int main() {
    while (scanf("%d %d", &x_in, &y_in) != EOF)
       if (x_in>0 && y_in>0){
         p_in[X]= x_in, p_in[Y]=y_in;
-        ADD(p_in, node);
+        ADD(p_in, v);
          printf("adding (%d %d)  to the polygon\n", \
          x_in, y_in);
 
@@ -100,8 +103,7 @@ int main() {
 
   // print the 2d vertices
 
-  tVertex v;
-  v = vertices;
+
   do {
     v = v->next;
   } while (v != vertices);
