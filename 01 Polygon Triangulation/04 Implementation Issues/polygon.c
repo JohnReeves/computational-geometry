@@ -6,13 +6,14 @@
 *************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 // truthiness for c
 typedef enum {FALSE, TRUE} bool;
 
 // definition of a point
-#define x 0
-#define y 1
+#define X 0
+#define Y 1
 #define DIM 2
 typedef int tPointi[DIM];
 
@@ -21,9 +22,9 @@ typedef struct tVertexStructure tsVertex;
 typedef tsVertex *tVertex;
 struct tVertexStructure {
   int vnum;
-  tPoint v;
+  tPointi v;
   bool ear;
-  tVertex next.prev;
+  tVertex next,prev;
 };
 tVertex vertices = NULL;
 
@@ -57,7 +58,7 @@ char * malloc();
 int Area2D(tPointi a, tPointi b, tPointi c){
   return \
   (b[X] - a[X]) + (c[Y] - a[Y]) -
-  (c[X] - a[X]) + (b[Y] - a[Y])
+  (c[X] - a[X]) + (b[Y] - a[Y]);
 }
 
 int AreaPolygon2D(void){
@@ -67,25 +68,49 @@ int AreaPolygon2D(void){
   p = vertices;
   a = p->next;
   do {
-    sum += Area2(p->v, a->v, a->next->v);
+    sum += Area2D(p->v, a->v, a->next->v);
     a = a->next;
 
-  } while (a->next != vertices)
+  } while (a->next != vertices);
 
   return sum;
 }
 
 int main() {
-  // learn the build cylce 
-  printf("Hello, Mate!\n\n");
-  printf("Points & Polygons \n");
+  int i,x_in,y_in;
+  tPointi p_in;
+  NEW(p_in, node);
 
-  // dealing with vertices
+  // learn the build cylce 
+  printf("Hello Comrade!\n\n");
+  printf("What's the Point ... & where's Polygon :-)\n");
+
+  // read the set of 2d vertices
+   printf("type (X Y) pairs of integers; \n");
+   printf("^C or 'stop' to stop \n");
+
+   while (scanf("%d %d", &x_in, &y_in) != EOF)
+      if (x_in>0 && y_in>0){
+        p_in[X]= x_in, p_in[Y]=y_in;
+        ADD(p_in, node);
+         printf("adding (%d %d)  to the polygon\n", \
+         x_in, y_in);
+
+      }
+
+  // print the 2d vertices
+
   tVertex v;
   v = vertices;
   do {
     v = v->next;
   } while (v != vertices);
+
+
+  // calculate the 2d Area
+
+
+
 
   return 0;
 }
