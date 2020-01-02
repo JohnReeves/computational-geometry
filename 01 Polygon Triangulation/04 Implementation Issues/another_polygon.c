@@ -12,56 +12,56 @@ typedef int tPointi[DIM];
 
 // definition of a list node
 int vertexCount=0;
-typedef struct node tsNode;
-typedef tsNode *tNode;
+typedef struct vertex tsVertex;
+typedef tsVertex *tVertex;
 
-struct node {
+struct vertex {
   int vnum;
-  tPointi data;
+  tPointi v;
   bool ear;
-  tNode next, prev;
+  tVertex next, prev;
 };
 
-tNode head = NULL;
-tNode last = NULL;
+tVertex head = NULL;
+tVertex last = NULL;
 
-tNode current = NULL;
+tVertex current = NULL;
 
 //display the list from the beginning
 void printList() {
-   tNode ptr = head;
+   tVertex ptr = head;
 
    printf("\n[head] <=>");
    while(ptr != NULL) {        
-      printf(" %d %d %d <=>",\
-               ptr->vnum, ptr->data[X], ptr->data[Y]);
+      printf(" %d (%d %d) <=>",\
+               ptr->vnum, ptr->v[X], ptr->v[Y]);
       ptr = ptr->next;
    }
 
-   printf(" [last]\n");
+   printf(" [tail]\n");
 }
 
 //display the list from the end
 void print_backward() {
-   tNode ptr = last;
+   tVertex ptr = last;
 
-   printf("\n[head] <=>");
+   printf("\n[tail] <=>");
    while(ptr != NULL) {        
-      printf(" %d %d %d <=>",\
-               ptr->vnum, ptr->data[X], ptr->data[Y]);
+      printf(" %d (%d %d) <=>",\
+               ptr->vnum, ptr->v[X], ptr->v[Y]);
       ptr = ptr->prev;
    }
 
-   printf(" [last]\n");
+   printf(" [head]\n");
 }
 
 //Create Linked List
-void insert(tPointi data) {
+void insert(tPointi v) {
    // Allocate memory for new node;
-   tNode link = (tNode) malloc(sizeof(tsNode));
+   tVertex link = (tVertex) malloc(sizeof(tsVertex));
 
    link->vnum = vertexCount++;
-   for (int i = 0; i < DIM; i++) link->data[i] = data[i];
+   for (int i = 0; i < DIM; i++) link->v[i] = v[i];
    link->prev = NULL;
    link->next = NULL;
 
