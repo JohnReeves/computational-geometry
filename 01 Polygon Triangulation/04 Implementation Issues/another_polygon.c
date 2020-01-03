@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// truthiness for c
+// what passes for truthiness in c
 typedef enum {FALSE, TRUE} bool;
 
 // definition of a point
@@ -27,32 +27,17 @@ tVertex last = NULL;
 
 tVertex current = NULL;
 
-//display the list from the beginning
-void printList() {
-   tVertex ptr = head;
-
-   printf("\n[head] <=>");
-   while(ptr != NULL) {        
-      printf(" %d (%d %d) <=>",\
-               ptr->vnum, ptr->v[X], ptr->v[Y]);
-      ptr = ptr->next;
-   }
-
-   printf(" [tail]\n");
+//display the list
+void print_forward() {
+  for (tVertex ptr = head; ptr != NULL; ptr = ptr->next)
+    printf(" %d (%d %d) \n",\
+    ptr->vnum, ptr->v[X], ptr->v[Y]);
 }
 
-//display the list from the end
 void print_backward() {
-   tVertex ptr = last;
-
-   printf("\n[last] <=>");
-   while(ptr != NULL) {        
-      printf(" %d (%d %d) <=>",\
-               ptr->vnum, ptr->v[X], ptr->v[Y]);
-      ptr = ptr->prev;
-   }
-
-   printf(" [head]\n");
+  for (tVertex ptr = last; ptr != NULL; ptr = ptr->prev) 
+    printf(" %d (%d %d) \n",\
+    ptr->vnum, ptr->v[X], ptr->v[Y]);
 }
 
 //Create Linked List
@@ -105,15 +90,20 @@ int AreaPolygon2D(void){
 }
 
 int main() {
-   insert((tPointi){10,10});
-   insert((tPointi){10,20});
-   insert((tPointi){10,30});
-   insert((tPointi){10,1});
-   insert((tPointi){10,40});
-   insert((tPointi){10,56}); 
+   int x, y;
 
-   printList();
-   print_backward();
+   printf("Hello, Geometry afficionados!\n\n");
+   printf("type pairs of numbers; \n");
+   printf("'-1' to stop \n");
+
+   while (scanf("%d %d", &x, &y))
+      if (x>0 && y>0)
+         insert((tPointi){x,y});
+      else
+         break;
+
+   printf("Your poligon is: \n");
+   print_forward();
 
    printf("area of the polygon is %d \n", AreaPolygon2D());
    
