@@ -1,3 +1,10 @@
+/************************
+   build with:
+     gcc another_polygon.c -o yap
+   run with:
+     ./yap
+*************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -83,7 +90,6 @@ int AreaPolygon2D(void){
   do {
     sum += Area2D(p->v, a->v, a->next->v);
     a = a->next;
-
   } while (a->next != NULL);
 
   return sum;
