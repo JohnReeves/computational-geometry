@@ -1,14 +1,14 @@
 /************************
    build with:
-     gcc polygon.c -o polygon
+     gcc another_polygon.c -o yap
    run with:
-     ./polygon
+     ./yap
 *************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 
-// truthiness for c
+// what passes for truthiness in c
 typedef enum {FALSE, TRUE} bool;
 
 // definition of a point
@@ -17,50 +17,63 @@ typedef enum {FALSE, TRUE} bool;
 #define DIM 2
 typedef int tPointi[DIM];
 
-// definition of a vertex
-typedef struct tVertexStructure tsVertex;
+// definition of a list node
+int vertexCount=0;
+typedef struct vertex tsVertex;
 typedef tsVertex *tVertex;
 
-struct tVertexStructure {
+struct vertex {
   int vnum;
   tPointi v;
   bool ear;
   tVertex next, prev;
 };
 
-tVertex vertices = NULL;
-
 tVertex head = NULL;
 tVertex last = NULL;
 
 tVertex current = NULL;
 
-// definition of a polygon
-#define EXIT FAILURE 1
-//char * malloc();
+//display the list
+void print_forward() {
+  for (tVertex ptr = head; ptr != NULL; ptr = ptr->next)
+    printf(" %d (%d %d) \n",\
+    ptr->vnum, ptr->v[X], ptr->v[Y]);
+}
 
-#define NEW(p, type) \
-    if ((p=(type *) malloc (sizeof(type))) == NULL) {\
-        printf("NEW: Out of Memory!\n");\
-        exit(1);\
-    }
+void print_backward() {
+  for (tVertex ptr = last; ptr != NULL; ptr = ptr->prev) 
+    printf(" %d (%d %d) \n",\
+    ptr->vnum, ptr->v[X], ptr->v[Y]);
+}
 
-#define ADD(HEAD, p) \
-    if (HEAD) {\
-        p->next = HEAD;\
-        p->prev = HEAD->prev;\
-        HEAD->prev = p;\
-        p->prev->next = p;\
-    } else {\
-        HEAD = p;\
-        HEAD->next = HEAD->prev = p;\
-    }
+//Create Linked List
+void insert(tPointi v) {
+   // Allocate memory for new node;
+   tVertex link = (tVertex) malloc(sizeof(tsVertex));
 
-#define FREE(p) \
-    if (p) {\
-        free ((char *) p);\
-        p = NULL;\
-    }
+   link->vnum = vertexCount++;
+   for (int i = 0; i < DIM; i++) link->v[i] = v[i];
+   link->prev = NULL;
+   link->next = NULL;
+
+   // If head is empty, create new list
+   if (head == NULL) {
+      head = link;
+      return;
+   }
+
+   current = head;
+   
+   // move to the end of the list
+   while (current->next != NULL)
+      current = current->next;
+
+   // Insert link at the end of the list
+   current->next = link;
+   last = link;
+   link->prev = current;
+}
 
 int Area2D(tPointi a, tPointi b, tPointi c){
   return \
@@ -72,56 +85,32 @@ int AreaPolygon2D(void){
   int sum = 0;
   tVertex p, a;
 
-  p = vertices;
-  a = p->next;
-  do {
+  for (p = head, a = p->next;a->next != NULL; a = a->next) 
     sum += Area2D(p->v, a->v, a->next->v);
-    a = a->next;
-
-  } while (a->next != vertices);
 
   return sum;
 }
 
 int main() {
+  int x, y;
+
   // learn the build cylce 
   printf("Hello Comrade!\n\n");
   printf("What's the Point ... & where's Polygon :-)\n");
 
-  int i,x_in,y_in;
-  tPointi p_in;
+  printf("type pairs of numbers: \n");
+  printf("'-1 -1' to stop \n");
 
-  tVertex v;
-  // v = vertices;
-  NEW(v, tVertex);
+  while (scanf("%d %d", &x, &y))
+    if (x>0 && y>0)
+      insert((tPointi){x,y});
+    else
+      break;
 
+  printf("Your polygon is: \n");
+  print_forward();
 
-  // read the set of 2d vertices
-   printf("type (X Y) pairs of integers; \n");
-   printf("^C or 'stop' to stop \n");
-
-   while (scanf("%d %d", &x_in, &y_in) != EOF)
-      if (x_in>0 && y_in>0){
-        p_in[X]= x_in, p_in[Y]=y_in;
-        ADD(p_in, v);
-         printf("adding (%d %d)  to the polygon\n", \
-         x_in, y_in);
-
-      }
-
-  // print the 2d vertices
-
-
-  do {
-    v = v->next;
-  } while (v != vertices);
-
-
-  // calculate the 2d Area
-
-
-
-
+  printf("area of the polygon is %d \n", AreaPolygon2D());
+   
   return 0;
 }
-

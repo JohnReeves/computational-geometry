@@ -12,13 +12,17 @@ echo
 
 art_gallery=$PWD/"01 Polygon Triangulation/01 Art Gallery Theorems"
 implementation=$PWD/"01 Polygon Triangulation/04 Implementation Issues"
+
 echo "building: "
 echo '+------------------+'
 echo "hello.c"
+echo "list.c"
+echo "polygon.c"
 echo '+------------------+'
 echo "binaries in ./Results"
 echo '+------------------+'
 
 gcc "$art_gallery/"hello.c -o ./Results/gallery_hello
-gcc "$implementation/"hello.c -o ./Results/implementation_hello
+gcc "$implementation/"list.c -o ./Results/list
+gcc "$implementation/"polygon.c -o ./Results/polygon
 #./Results/gcd
