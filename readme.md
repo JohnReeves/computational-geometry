@@ -13,8 +13,8 @@ Section / Title | Progress | Results
 '01 Art Gallery Theorems' | WIP | `hello.c`
 '02 Triangulation Theory' | WIP | `hello.c`  
 '03 Area of Polygons' | WIP | `hello.c`   
-'04 Implementation Issues' | WIP | `list.c`, `polygon.c`, `Area2D()`  
-'05 Segment Intersection'| Not Started  
+'04 Implementation Issues' | Completed | `list.c`, `polygon.c`, `Area2D()`  
+'05 Segment Intersection'| WIP  | `collinear.c`
 '06 Triangulation Implementation'| Not Started  
 *'02 Polygon Partitioning'* | Not Started  
 '01 Monotone Partitioning' | Not Started  
