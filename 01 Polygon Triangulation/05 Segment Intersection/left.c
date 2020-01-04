@@ -123,6 +123,22 @@ bool Xor(bool x, bool y){
   return !x ^ !y;
 }
 
+bool Between(tPointi a, tPointi b, tPointi c){
+  tPointi ba, ca;
+
+  if ( !Collinear(a,b,c) ) 
+  return FALSE;
+
+  if ( a[X] != b[X] ) 
+  return \
+  (a[X] <= c[X]) && (c[X] <= b[X]) ||
+  (a[X] >= c[X]) && (c[X] >= b[X]);
+
+  // else 
+  return \
+  (a[Y] <= c[Y]) && (c[Y] <= b[Y]) ||
+  (a[Y] >= c[Y]) && (c[Y] >= b[Y]);
+}
 
 int main() {
   int x, y;
