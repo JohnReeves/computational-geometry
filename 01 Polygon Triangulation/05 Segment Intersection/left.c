@@ -103,6 +103,10 @@ bool Collinear(tPointi a, tPointi b, tPointi c){
   return Area2D(a, b, c) == 0;
 }
 
+bool Xor(bool x, bool y){
+  return !x ^ !y;
+}
+
 bool IntersectProp(tPointi a, tPointi b, tPointi c, tPointi d){
   
   if (
@@ -117,10 +121,6 @@ bool IntersectProp(tPointi a, tPointi b, tPointi c, tPointi d){
   return 
     Xor( Left(a, b, c), Left(a, b, d) ) &&
     Xor( Left(c, d, a), Left(c, d, b) );
-}
-
-bool Xor(bool x, bool y){
-  return !x ^ !y;
 }
 
 bool Between(tPointi a, tPointi b, tPointi c){
