@@ -91,6 +91,39 @@ int AreaPolygon2D(void){
   return sum;
 }
 
+bool Left(tPointi a, tPointi b, tPointi c){
+  return Area2D(a, b, c) > 0;
+}
+
+bool LeftOn(tPointi a, tPointi b, tPointi c){
+  return Area2D(a, b, c) >= 0;
+}
+
+bool Collinear(tPointi a, tPointi b, tPointi c){
+  return Area2D(a, b, c) == 0;
+}
+
+bool IntersectProp(tPointi a, tPointi b, tPointi c, tPointi d){
+  
+  if (
+    Collinear(a,b,c) ||
+    Collinear(a,b,d) ||
+    Collinear(c,d,a) ||
+    Collinear(c,d,b)
+  ) 
+  return FALSE;
+
+  // else 
+  return 
+    Xor( Left(a, b, c), Left(a, b, d) ) &&
+    Xor( Left(c, d, a), Left(c, d, b) );
+}
+
+bool Xor(bool x, bool y){
+  return !x ^ !y;
+}
+
+
 int main() {
   int x, y;
 
