@@ -155,6 +155,11 @@ bool Intersect(tPointi a, tPointi b, tPointi c, tPointi d){
     return FALSE;
 }
 
+bool Diagonalie(tVertex a, tVertex b){
+
+
+}
+
 int main() {
   int x, y;
 
