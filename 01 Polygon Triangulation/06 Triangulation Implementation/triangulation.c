@@ -140,6 +140,21 @@ bool Between(tPointi a, tPointi b, tPointi c){
   (a[Y] >= c[Y]) && (c[Y] >= b[Y]);
 }
 
+bool Intersect(tPointi a, tPointi b, tPointi c, tPointi d){
+  
+  if ( IntersectProp(a.b.c.d) )
+    return TRUE;
+  else if (
+    Between(a,b,c) ||
+    Between(a,b,d) ||
+    Between(c,d,a) ||
+    Between(c,d,b)
+  ) 
+    return TRUE;
+  else 
+    return FALSE;
+}
+
 int main() {
   int x, y;
 
