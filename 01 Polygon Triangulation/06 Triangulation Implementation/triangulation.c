@@ -179,6 +179,45 @@ bool InCone(tVertex a, tVertex b){
        LeftOn(b->v, a->v, a1->v) );
 }
 
+bool Diagonal(tVertex a, tVertex b){
+  return InCone(a, b) && InCone(b, a) && Diagonalie(a, b);
+}
+
+void EarInit( void ){
+  tVertex v0, v1, v2;
+
+  for (v1=head; v1!=head; v1=v1->next){
+    v0 = v1->prev;
+    v2 = v1->next;
+    v1->ear = Diagonal( v0, v2 );
+  }
+}
+
+void Triangulate( void ){
+  tVertex v0, v1, v2, v3, v4;
+  // int n = nvertices;
+
+  EarInit();
+  for (int n=nverticrs; n>3; n--){
+    for (v2=head; v2!=head; v2=v2->next){
+      if (v2->ear){
+        v3 = v2->next; v4 = v3->next;
+        v1 = v2->prev; v0 = v1->prev;
+
+        PrintDiagonal(v1, v2);
+
+        v1->ear = Diagonal(v0, v3);
+        v3->ear = Diagonal(v1, v4);
+
+        v1->next = v3;
+        v3->prev = v1;
+        head = v3;
+      }
+    }
+
+  }
+}
+
 int main() {
   int x, y;
 
