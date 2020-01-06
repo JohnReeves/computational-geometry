@@ -131,13 +131,13 @@ bool Between(tPointi a, tPointi b, tPointi c){
 
   if ( a[X] != b[X] ) 
   return \
-  (a[X] <= c[X]) && (c[X] <= b[X]) ||
-  (a[X] >= c[X]) && (c[X] >= b[X]);
+    (a[X] <= c[X]) && (c[X] <= b[X]) ||
+    (a[X] >= c[X]) && (c[X] >= b[X]);
 
   // else 
   return \
-  (a[Y] <= c[Y]) && (c[Y] <= b[Y]) ||
-  (a[Y] >= c[Y]) && (c[Y] >= b[Y]);
+    (a[Y] <= c[Y]) && (c[Y] <= b[Y]) ||
+    (a[Y] >= c[Y]) && (c[Y] >= b[Y]);
 }
 
 bool Intersect(tPointi a, tPointi b, tPointi c, tPointi d){
@@ -155,13 +155,28 @@ bool Intersect(tPointi a, tPointi b, tPointi c, tPointi d){
 bool Diagonalie(tVertex a, tVertex b){
   tVertex c, c1;
 
-  c = head; 
-  for (c1=c->next; c!=head; c=c->next){
+  for (c = head, c1=c->next; c!=head; c=c->next){
     if ( (c != a) && (c1 != a) &&
          (c != b) && (c1 != b) )
     return FALSE;
   }
   return TRUE;
+}
+
+bool InCone(tVertex a, tVertex b){
+  tVertex a0, a1;
+
+  a0 = a->prev;
+  a1 = a->next;
+
+  if ( LeftOn(a->v, a1->v, a0->v) )
+  return \
+    Left(a->v, b->v, a0->v) &&
+    Left(b->v, a->v, a1->v);
+  // else
+  return \
+    !( LeftOn(a->v, b->v, a0->v) &&
+       LeftOn(b->v, a->v, a1->v) );
 }
 
 int main() {
