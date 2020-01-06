@@ -47,6 +47,15 @@ void print_backward() {
     ptr->vnum, ptr->v[X], ptr->v[Y]);
 }
 
+void PrintDiagonal(p1, p2) {
+  printf("Diagonal:");
+    printf(" %d (%d %d) \n",\
+    p1->vnum, p1->v[X], p1->v[Y]);
+    printf(" %d (%d %d) \n",\
+    p2->vnum, p2->v[X], p2->v[Y]);
+
+}
+
 //Create Linked List
 void insert(tPointi v) {
    // Allocate memory for new node;
@@ -195,10 +204,10 @@ void EarInit( void ){
 
 void Triangulate( void ){
   tVertex v0, v1, v2, v3, v4;
-  // int n = nvertices;
+  // int n = vertexCount;
 
   EarInit();
-  for (int n=nverticrs; n>3; n--){
+  for (int n=vertexCount; n>3; n--){
     for (v2=head; v2!=head; v2=v2->next){
       if (v2->ear){
         v3 = v2->next; v4 = v3->next;
@@ -214,7 +223,6 @@ void Triangulate( void ){
         head = v3;
       }
     }
-
   }
 }
 
