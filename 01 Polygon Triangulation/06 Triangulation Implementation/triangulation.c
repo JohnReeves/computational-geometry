@@ -141,23 +141,27 @@ bool Between(tPointi a, tPointi b, tPointi c){
 }
 
 bool Intersect(tPointi a, tPointi b, tPointi c, tPointi d){
-  
-  if ( IntersectProp(a.b.c.d) )
+
+  if ( IntersectProp(a,b,c,d) )
     return TRUE;
-  else if (
-    Between(a,b,c) ||
-    Between(a,b,d) ||
-    Between(c,d,a) ||
-    Between(c,d,b)
-  ) 
+  // else 
+  if ( Between(a,b,c) || Between(a,b,d) ||
+       Between(c,d,a) || Between(c,d,b) ) 
     return TRUE;
-  else 
-    return FALSE;
+  // else 
+  return FALSE;
 }
 
 bool Diagonalie(tVertex a, tVertex b){
+  tVertex c, c1;
 
-
+  c = head; 
+  for (c1=c->next; c!=head; c=c->next){
+    if ( (c != a) && (c1 != a) &&
+         (c != b) && (c1 != b) )
+    return FALSE;
+  }
+  return TRUE;
 }
 
 int main() {

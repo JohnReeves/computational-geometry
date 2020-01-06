@@ -10,10 +10,10 @@
 Section / Title | Progress | Results
 ---|---|---
 *'01 Polygon Triangulations'* | WIP |
-'01 Art Gallery Theorems' | WIP | `hello.c`
-'02 Triangulation Theory' | WIP | `hello.c`  
-'03 Area of Polygons' | WIP | `hello.c`   
-'04 Implementation Issues' | Completed | `list.c`, `polygon.c`, `Area2D()`  
+'01 Art Gallery Theorems' | Completed | `no code`
+'02 Triangulation Theory' | Combinatorics | `no code`  
+'03 Area of Polygons' | Completed | `no code`   
+'04 Implementation Issues' | Completed | `polygon.c`  
 '05 Segment Intersection'| Completed  | `intersection.c`
 '06 Triangulation Implementation'| WIP | `triangulation.c`  
 *'02 Polygon Partitioning'* | Not Started  
