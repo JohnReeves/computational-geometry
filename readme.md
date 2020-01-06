@@ -15,7 +15,7 @@ Section / Title | Progress | Results
 '03 Area of Polygons' | Completed | `no code`   
 '04 Implementation Issues' | Completed | `polygon.c`  
 '05 Segment Intersection'| Completed  | `intersection.c`
-'06 Triangulation Implementation'| WIP | `triangulation.c`  
+'06 Triangulation Implementation'| Completed | `triangulation.c`  
 *'02 Polygon Partitioning'* | Not Started  
 '01 Monotone Partitioning' | Not Started  
 '02 Trapezoidalization' | Not Started  

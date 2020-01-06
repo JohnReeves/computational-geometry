@@ -47,7 +47,7 @@ void print_backward() {
     ptr->vnum, ptr->v[X], ptr->v[Y]);
 }
 
-void PrintDiagonal(p1, p2) {
+void PrintDiagonal(tVertex p1, tVertex p2) {
   printf("Diagonal:");
     printf(" %d (%d %d) \n",\
     p1->vnum, p1->v[X], p1->v[Y]);
@@ -246,6 +246,9 @@ int main() {
   print_forward();
 
   printf("area of the polygon is %d \n", AreaPolygon2D());
-   
+
+  printf("Triangulation of the polygon is \n");
+  Triangulate();
+ 
   return 0;
 }
