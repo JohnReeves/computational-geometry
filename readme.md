@@ -9,25 +9,25 @@
 
 Section / Title | Progress | Results
 ---|---|---
-*'01 Polygon Triangulations'* | WIP |
+*'01 Polygon Triangulations'* | Completed |
 '01 Art Gallery Theorems' | Completed | `no code`
-'02 Triangulation Theory' | Combinatorics | `no code`  
+'02 Triangulation Theory' | Completed | `no code`  
 '03 Area of Polygons' | Completed | `no code`   
 '04 Implementation Issues' | Completed | `polygon.c`  
 '05 Segment Intersection'| Completed  | `intersection.c`
 '06 Triangulation Implementation'| Completed | `triangulation.c`  
-*'02 Polygon Partitioning'* | Not Started  
-'01 Monotone Partitioning' | Not Started  
-'02 Trapezoidalization' | Not Started  
-'03 Partition into Monotone Mountains' | Not Started  
-'04 Linear-Time Triangulation' | Not Started  
-'05 Convex Partitioning' | Not Started  
-*'03 Convex Hulls in Two Dimensions'*| Not Started  
-'01 Convexity and Convex Hulls'| Not Started    
-'02 Naive Algorithms for Extreme Points' | Not Started    
-'03 Gift Wrapping'| Not Started   
-'04 QuickHull' | Not Started  
-'05 Graham's Algorithm' | Not Started  
+*'02 Polygon Partitioning'* | Completed |   
+'01 Monotone Partitioning' | Completed | `no code`  
+'02 Trapezoidalization' | Completed | `no code`  
+'03 Partition into Monotone Mountains' | Completed | `no code`  
+'04 Linear-Time Triangulation' | Completed | `no code`  
+'05 Convex Partitioning' | Completed | `no code`  
+*'03 Convex Hulls in Two Dimensions'*| WIP |   
+'01 Convexity and Convex Hulls'| Completed | `no code`    
+'02 Naive Algorithms for Extreme Points' | Completed | `no code`    
+'03 Gift Wrapping'| Completed | `no code`   
+'04 QuickHull' | Completed | `no code`  
+'05 Graham's Algorithm' | WIP | `graham.c `  
 '06 Lower Bound'| Not Started    
 '07 Incremental Algorithm' | Not Started    
 '08 Divide and Conquer'| Not Started   
