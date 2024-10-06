@@ -1,6 +1,10 @@
 #### Directory structure & progress chart
 
 `NB:` repl.it has a bug that erases any templated folders.
+`NB:` programs need to be run locally as repl.it has become unaffordable
+`NB:` I will name an alternatie free online environment here when i it
+
+The suggestions below work in a unix-like environment, such as iTerm, cygwin, bash
 
 * use `run` to execute main.sh;   
 * modify `main.sh` to build & add linux features; or    
