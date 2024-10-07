@@ -13,3 +13,9 @@ My engineering mind says a polygon is whatever data structure that makes the cal
 
 We can also experiment with different definitions and different data structures to find out what 
 suits the algorithms and real world models best.
+
+`Jordan's curve theorem - Every simple closed plane curve divides the plane into two components, 
+called the interior and exterior of the curve`
+
+An obvious statement but difficult to prove.
+
