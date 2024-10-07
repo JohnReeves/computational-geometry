@@ -20,9 +20,9 @@ the boundaed interior of the curve and the unbounded exterior`
 An obvious statement which is difficult to prove. 
 
 Often a polygon is considered to be the segments bounding 
-the region, and not the region itself. In the book, the notation of delta P is used to represent the 
-boundary of P, where $$\delta P \subseteq P$$. Allowing for the limitations of the mathematical symbols
-in github markdown, delta P uses symbol for the partial derivative!
+the region, and not the region itself. In the book, the notation of $$\delta P$$ is used to represent the 
+boundary of P, where $$\delta P \subseteq P$$. Using the brilliance of $$\LaTeX$$ symbols
+in github markdown, $$\delta P$$ uses the symbol for the partial derivative!
 
 By convention, the vertices of a polygon are listed in counterclockwise order, such that the interior region
 is always to the left when following a boundary traversal.
