@@ -21,7 +21,7 @@ An obvious statement which is difficult to prove.
 
 Often a polygon is considered to be the segments bounding 
 the region, and not the region itself. In the book, the notation of delta P is used to represent the 
-boundary of P, where delta P is a subset of P. Allowing for the limitations of the mathematical symbols
+boundary of P, where $/delta P /subset of P$. Allowing for the limitations of the mathematical symbols
 in github markdown, delta P uses symbol for the partial derivative!
 
 By convention, the vertices of a polygon are listed in counterclockwise order, such that the interior region
