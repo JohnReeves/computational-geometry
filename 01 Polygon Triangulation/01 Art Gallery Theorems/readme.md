@@ -14,8 +14,20 @@ My engineering mind says a polygon is whatever data structure that makes the cal
 We can also experiment with different definitions and different data structures to find out what 
 suits the algorithms and real world models best.
 
-`Jordan's curve theorem - Every simple closed plane curve divides the plane into two components, 
-called the interior and exterior of the curve`
+`Therem 1.1.1 Jordan's curve theorem - Every simple closed plane curve divides the plane into two components, 
+the boundaed interior of the curve and the unbounded exterior`
 
-An obvious statement but difficult to prove.
+An obvious statement which is difficult to prove. 
+
+Often a polygon is considered to be the segments bounding 
+the region, and not the region itself. In the book, the notation of delta P is used to represent the 
+boundary of P, where delta P is a subset of P. Allowing for the limitations of the mathematical symbols
+in github markdown, delta P uses symbol for the partial derivative!
+
+By convention, the vertices of a polygon are listed in counterclockwise order, such that the interior region
+is always to the left when following a boundary traversal.
+
+`Theorem 1.1.2 the art gallery theorem - how many points of light are needed to illuminate the entire polygon`
+
+
 
